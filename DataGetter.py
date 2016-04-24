@@ -26,14 +26,18 @@ def get_user_data(number):
 
     classes = []
     fulltexts = []
+    doc_ids = []
 
     for row in rows:
+        doc_ids.append(row[1])
         classes.append(row[2])
         fulltexts.append(get_file_text(row[5]))
 
     print (len(classes))
     print (len(fulltexts))
 
-    X_train, X_test, y_train, y_test = train_test_split( fulltexts, classes, test_size=0.33)
+    #X_train, X_test, y_train, y_test = train_test_split( fulltexts, classes, test_size=0.33)
 
-    return X_train, X_test, y_train, y_test
+    #return X_train, X_test, y_train, y_test
+
+    return fulltexts, classes, doc_ids
